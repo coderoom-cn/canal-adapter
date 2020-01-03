@@ -1,0 +1,24 @@
+##域名 http://busos.zmee.com.cn
+
+##配置数据源
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.172.14:3306/zmee_bodb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: zmee_bo
+    password: zmee_bo@14
+    driver-class-name: com.mysql.jdbc.Driver
+    # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 50
+      auto-commit: true
+      #一个连接idle状态的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      idle-timeout: 600000
+      #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms，建议设置比数据库超时时长少60秒，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      max-lifetime: 28740000
+      # 连接池名字
+      pool-name: DatebookHikariCP
+      connection-test-query: SELECT 1
+  jmx:
+    enabled: false

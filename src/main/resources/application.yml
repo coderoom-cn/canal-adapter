@@ -1,0 +1,15 @@
+##服务器端口号
+server:
+  port: 9999
+  servlet:
+    context-path: /canal_cust
+spring:
+  jackson:
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: true  # 返回前台日期为时间戳
+  profiles:
+    active: dev
+
+
+

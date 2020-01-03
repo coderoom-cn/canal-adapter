@@ -1,0 +1,212 @@
+{
+  "appName": "example",
+  "threadPoolSize": 8,
+  "canal": {
+    "ip": "192.168.173.15",
+    "port": 9000,
+    "user": "zmee_dba",
+    "password": "zmee_dba@18"
+  },
+  "dataSource": {
+    "hn-sj": {
+      //目标数据库配置，可配置多个
+      "driverClass": "com.mysql.jdbc.Driver",
+      "url": "jdbc:mysql://192.168.173.13:3306/from-sj?useUnicode=true&characterEncoding=utf-8&useSSL=false",
+      "username": "root",
+      "password": "123456"
+    },
+    "hn-epv": {
+      //目标数据库配置，可配置多个
+      "driverClass": "com.mysql.jdbc.Driver",
+      "url": "jdbc:mysql://192.168.172.14:3306/zmee_epvdb?useUnicode=true&characterEncoding=utf-8&useSSL=false",
+      "username": "zmee_dba",
+      "password": "zmee_dba@18"
+    }
+  },
+
+  "jobs": [
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-sj",
+      "prop": {
+        "database": "zmee_bobasedb",
+        "table": "hnoms_bb_user",
+        "target": "hnoms_bb_user",
+        "mapping": {
+          "id": "id",
+          "user_code": "user_code",
+          "name": "name",
+          "telephone": "telephone",
+          "email": "email",
+          "phone": "phone",
+          "job_title": "job_title",
+          "memo": "memo",
+          "update_time": "update_time",
+          "is_del": "is_del",
+          "version": "version"
+        }
+      }
+    },
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-sj",
+      "prop": {
+        "database": "zmee_bobasedb",
+        "table": "hnoms_bb_coal_detail",
+        "target": "hnoms_bb_coal_detail",
+        "mapping": {
+          "id": "id",
+          "coal_type_id": "coal_type_id",
+          "coal_code": "coal_code",
+          "short_name": "short_name",
+          "sap_full_name": "sap_full_name",
+          "heating_value": "heating_value",
+          "water": "water",
+          "gray": "gray",
+          "gray_melting_point": "gray_melting_point",
+          "sulfur": "sulfur",
+          "volatil": "volatil",
+          "update_time": "update_time",
+          "is_del": "is_del",
+          "version": "version"
+        }
+      }
+    },
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-sj",
+      "prop": {
+        "database": "zmee_bodb",
+        "table": "hnoms_sale_opportunitats",
+        "target": "hnoms_sale_opportunitats",
+        "mapping": {
+          "id": "id",
+          "opportunitats_code": "opportunitats_code",
+          "department_id": "department_id",
+          "coal_id": "coal_id",
+          "heating_value": "heating_value",
+          "water": "water",
+          "gray": "gray",
+          "sulfur": "sulfur",
+          "quantity": "quantity",
+          "delivery_time": "delivery_time",
+          "validity_period": "validity_period",
+          "received_cust": "received_cust",
+          "prize_punish": "prize_punish",
+          "other": "other",
+          "status": "status",
+          "surplus": "surplus",
+          "lock_num": "lock_num",
+          "update_time": "update_time",
+          "is_del": "is_del",
+          "version": "version"
+        }
+      }
+    },
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-sj",
+      "prop": {
+        "database": "zmee_bodb",
+        "table": "hnoms_supplie_opportunitats",
+        "target": "hnoms_supplie_opportunitats",
+        "mapping": {
+          "id": "id",
+          "opportunitats_code": "opportunitats_code",
+          "department_id": "department_id",
+          "coal_id": "coal_id",
+          "supplier_id": "supplier_id",
+          "heating_value": "heating_value",
+          "water": "water",
+          "gray": "gray",
+          "sulfur": "sulfur",
+          "quantity": "quantity",
+          "price": "price",
+          "validity_period": "validity_period",
+          "received_cust": "received_cust",
+          "delivery_type": "delivery_type",
+          "delivery_location": "delivery_location",
+          "other": "other",
+          "status": "status",
+          "surplus": "surplus",
+          "lock_num": "lock_num",
+          "file_info_json": "file_info_json",
+          "update_time": "update_time",
+          "is_del": "is_del",
+          "version": "version"
+        }
+      }
+    },
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-sj",
+      "prop": {
+        "database": "zmee_bodb",
+        "table": "hnoms_business_order",
+        "target": "hnoms_business_order",
+        "mapping": {
+          "id": "id" ,
+          "inner_no": "inner_no",
+          "sale_opportunitats_code": "sale_opportunitats_code",
+          "supplier_opportunitats_code": "supplier_opportunitats_code",
+          "nature": "nature",
+          "payment_type": "payment_type",
+          "contacts_type": "contacts_type",
+          "signed_date": "signed_date",
+          "coal_id": "coal_id",
+          "heating_value": "heating_value",
+          "water": "water",
+          "gray": "gray",
+          "sulfur": "sulfur",
+          "quantity": "quantity",
+          "price": "price",
+          "ship": "ship",
+          "ship_time": "ship_time",
+          "ship_is_rent": "ship_is_rent",
+          "received_cust": "received_cust",
+          "send_cust": "send_cust",
+          "receiver": "receiver",
+          "prize_punish": "prize_punish",
+          "quantity_accept": "quantity_accept",
+          "quality_accept": "quality_accept",
+          "other": "other",
+          "approval_status": "approval_status",
+          "leader_idea": "leader_idea",
+          "create_by": "create_by",
+          "create_time": "create_time",
+          "update_time": "update_time",
+          "update_by": "update_by",
+          "is_del": "is_del",
+          "version": "version",
+          "order_type": "order_type",
+          "title": "title",
+          "flow_to": "flow_to",
+          "compute_time": "compute_time",
+          "delivery_time": "delivery_time",
+          "delivery_place": "delivery_place",
+          "delivery_type": "delivery_type",
+          "file_info_json": "file_info_json",
+          "approval_number": "approval_number",
+          "sale_create_by": "sale_create_by",
+          "supplier_create_by": "supplier_create_by",
+          "quality_index": "quality_index"
+
+        }
+      }
+    },
+    {
+      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "dataSource": "hn-epv",
+      "prop": {
+        "database": "zmee_bobasedb",
+        "table": "hnoms_bb_user",
+        "target": "epv_pv_users",
+        "mapping": {
+          "id": "user_id",
+          "user_code": "user_code",
+          "name": "user_name"
+        }
+      }
+    }
+  ]
+}

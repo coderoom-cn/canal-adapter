@@ -1,0 +1,29 @@
+##配置数据源
+spring:
+  datasource:
+    url: jdbc:mysql://10.22.106.213:3306/hn-sj?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 50
+      auto-commit: true
+      #一个连接idle状态的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      idle-timeout: 600000
+      #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms，建议设置比数据库超时时长少60秒，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      max-lifetime: 28740000
+      # 连接池名字
+      pool-name: DatebookHikariCP
+      connection-test-query: SELECT 1
+
+## mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  typeAliasesPackage: com.zjmiec.sj.**.response
+  configuration: #配置slq打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true #sql执行字段下划线自动转换成驼峰原则的属性,比如数据库字段is_del java对象属性isDel,不需要在Mapper.xml中配置ResultMap
+
