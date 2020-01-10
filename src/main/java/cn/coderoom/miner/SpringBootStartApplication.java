@@ -4,12 +4,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * @package：com.hebaibai.miner
- * @description:
- * @author: Leesire
- * @email:coderoom.cn@gmail.com
- * @createtime: 2019/7/9
- */
+ *
+ * @class SpringBootStartApplication
+ * @package cn.coderoom.miner
+ * @author lim
+ * @email coderoom.cn@gmail.com
+ * @date 2019/7/9 15:37
+*/
 public class SpringBootStartApplication extends SpringBootServletInitializer {
 
     @Override

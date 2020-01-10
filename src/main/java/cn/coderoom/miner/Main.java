@@ -15,7 +15,7 @@ import java.util.List;
 /** 
  * 
  * @class Main
- * @package com.hebaibai.miner
+ * @package cn.coderoom.miner
  * @author lim
  * @email coderoom.cn@gmail.com
  * @date 2019/8/3 13:37
