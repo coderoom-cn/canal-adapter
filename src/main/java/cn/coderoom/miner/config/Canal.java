@@ -1,13 +1,13 @@
-package com.hebaibai.miner.config;
+package cn.coderoom.miner.config;
 
+import cn.coderoom.miner.job.Job;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
-import com.hebaibai.miner.CanalConf;
-import com.hebaibai.miner.CanalTask;
-import com.hebaibai.miner.DataSourceConf;
-import com.hebaibai.miner.job.Job;
+import cn.coderoom.miner.CanalConf;
+import cn.coderoom.miner.CanalTask;
+import cn.coderoom.miner.DataSourceConf;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.cli.*;
@@ -32,25 +32,36 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @package：com.hebaibai.miner.config
- * @description:
- * @author: Leesire
- * @email:coderoom.cn@gmail.com
- * @createtime: 2019/7/9
- */
+ *
+ * @class Canal
+ * @package cn.coderoom.miner.config
+ * @author lim
+ * @email coderoom.cn@gmail.com
+ * @date 2019/7/9 14:50
+*/
 @Configuration
 @Slf4j
 public class Canal {
 
-    //canal链接配置
+    /**
+     *canal链接配置
+    */
     private static CanalConf canalConf;
-    //应用名称
+    /**
+     *应用名称
+    */
     private static String appName;
-    //线程池大小设置
+    /**
+     *线程池大小设置
+    */
     private static int threadPoolSize;
-    //数据库配置
+    /**
+     * 多数据源数据库配置
+    */
     private static List<DataSourceConf> dataSourceConfs = new ArrayList<>();
-    //jobs配置
+    /**
+     *jobs配置
+    */
     private static JSONArray jobs = null;
 
 
@@ -68,20 +79,31 @@ public class Canal {
             byte[] bytes = new byte[inputStream.available()];
             inputStream.read(bytes);
             JSONObject jsonObject = JSONObject.parseObject(new String(bytes, "utf-8"));
-            //配置设置
+            /**
+             * 配置设置
+            */
             appName = jsonObject.getString("appName");
+            /**
+             *线程池大小设置
+             */
             threadPoolSize = jsonObject.getInteger("threadPoolSize");
-            //canal配置
+            /**
+             * canal配置
+            */
             canalConf = jsonObject.getObject("canal", CanalConf.class);
             canalConf.setDestination(appName);
-            //数据库配置
+            /**
+             *数据库配置
+            */
             JSONObject dataSource = jsonObject.getJSONObject("dataSource");
             for (String key : dataSource.keySet()) {
                 DataSourceConf dataSourceConf = dataSource.getObject(key, DataSourceConf.class);
                 dataSourceConf.setName(key);
                 dataSourceConfs.add(dataSourceConf);
             }
-            //jod配置
+            /**
+             *jod配置
+            */
             jobs = jsonObject.getJSONArray("jobs");
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,11 +135,17 @@ public class Canal {
         List<Job> jobs = new ArrayList<>();
         for (int i = 0; i < this.jobs.size(); i++) {
             JSONObject jobJson = this.jobs.getJSONObject(i);
-            //实例化
+            /**
+             *实例化
+            */
             String className = jobJson.getString("className");
-            //对应数据库
+            /**
+             *对应数据库
+            */
             String dataSource = jobJson.getString("dataSource");
-            //额外配置
+            /**
+             *额外配置
+            */
             JSONObject prop = jobJson.getJSONObject("prop");
             try {
                 Class<?> aClass = Class.forName(className);

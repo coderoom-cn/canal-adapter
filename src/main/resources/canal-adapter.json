@@ -1,12 +1,13 @@
 {
-  "appName": "example",
-  "threadPoolSize": 8,
-  "canal": {
+  "appName": "example", //应用名称
+  "threadPoolSize": 8, //大小为处理器核心数×2
+  "canal": { //canal配置
     "ip": "192.168.173.15",
     "port": 9000,
     "user": "zmee_dba",
     "password": "zmee_dba@18"
   },
+  //数据源配置
   "dataSource": {
     "hn-sj": {
       //目标数据库配置，可配置多个
@@ -26,7 +27,7 @@
 
   "jobs": [
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-sj",
       "prop": {
         "database": "zmee_bobasedb",
@@ -48,7 +49,7 @@
       }
     },
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-sj",
       "prop": {
         "database": "zmee_bobasedb",
@@ -73,7 +74,7 @@
       }
     },
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-sj",
       "prop": {
         "database": "zmee_bodb",
@@ -104,7 +105,7 @@
       }
     },
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-sj",
       "prop": {
         "database": "zmee_bodb",
@@ -138,7 +139,7 @@
       }
     },
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-sj",
       "prop": {
         "database": "zmee_bodb",
@@ -195,7 +196,7 @@
       }
     },
     {
-      "className": "com.hebaibai.miner.job.TableSyncJob",
+      "className": "cn.coderoom.miner.job.TableSyncJob",
       "dataSource": "hn-epv",
       "prop": {
         "database": "zmee_bobasedb",

@@ -1,4 +1,4 @@
-package com.hebaibai.miner;
+package cn.coderoom.miner;
 
 import lombok.Data;
 

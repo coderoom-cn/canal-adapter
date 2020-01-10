@@ -1,4 +1,4 @@
-package com.hebaibai.miner.job;
+package cn.coderoom.miner.job;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.otter.canal.protocol.CanalEntry;

@@ -1,4 +1,4 @@
-package com.hebaibai.miner;
+package cn.coderoom.miner;
 
 import com.alibaba.fastjson.JSONArray;
 import org.apache.commons.cli.ParseException;

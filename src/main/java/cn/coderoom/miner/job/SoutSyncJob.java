@@ -1,4 +1,4 @@
-package com.hebaibai.miner.job;
+package cn.coderoom.miner.job;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.SystemUtils;

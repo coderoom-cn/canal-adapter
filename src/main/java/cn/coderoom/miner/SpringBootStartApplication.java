@@ -1,4 +1,4 @@
-package com.hebaibai.miner;
+package cn.coderoom.miner;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

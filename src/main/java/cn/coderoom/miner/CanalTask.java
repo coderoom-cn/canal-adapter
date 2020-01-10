@@ -1,8 +1,8 @@
-package com.hebaibai.miner;
+package cn.coderoom.miner;
 
+import cn.coderoom.miner.job.Job;
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.protocol.Message;
-import com.hebaibai.miner.job.Job;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -16,10 +16,10 @@ import static com.alibaba.otter.canal.protocol.CanalEntry.Header;
 /**
  * 接受binlog，分发任务
  * @class CanalTask
- * @package com.hebaibai.miner
+ * @package cn.coderoom.miner
  * @author lim
  * @email coderoom.cn@gmail.com
- * @date 2019/8/3 13:44
+ * @date  2019/8/3 13:44
 */
 @Slf4j
 public class CanalTask extends Thread {
@@ -82,7 +82,7 @@ public class CanalTask extends Thread {
                 log.info("Connection failed, try to relink。。。");
                 threadSleep(3 * 1000);
             }
-            System.err.println("链接成功。。。");
+            //System.err.println("链接成功。。。");
             log.info("Successful link。。。");
             try {
                 while (run) {
