@@ -14,7 +14,7 @@ Canal 会将自己伪装成 MySQL 从节点（Slave），并从主节点（Maste
 
 ***
 
-###canal 开启
+### canal 开启
 
 1. MySQL 主节点开启 Binlog。
 ```
@@ -37,9 +37,9 @@ mysql> show grants canal
     
 4. 启动客户端
 
-###canal 配置文件
+### canal 配置文件
 #### canal.properties
-#####文件位置：
+##### 文件位置：
 canal/conf
 部分关键参数说明
 ```
@@ -60,8 +60,8 @@ canal.port= 11111
 # 此模块为一个实例模块，canal支持一对多，所以这个实例的名称为：example (消费者注册)#
 canal.destinations= example
 ```
-####instance.properties
-#####文件位置
+#### instance.properties
+##### 文件位置
 canal/conf/example
 
 在配置canal之前，我们先连接mysql，查看MySQL master status
@@ -77,7 +77,7 @@ mysql> show master status;
 File：mysql-bin.000021 
 Position：4241 
 记住这两个值
-#####关键配置信息
+##### 关键配置信息
 ```
 ## mysql serverId
 canal.instance.mysql.slaveId=234 # 不能与mysql配置文件中的slaveId重复
@@ -96,5 +96,5 @@ canal.instance.connectionCharset=UTF-8 # 自己数据库的信息
 ```
 
 
-###参考
+### 参考
 [canal 1.0.25 快速启动配置](https://segmentfault.com/a/1190000012862191)

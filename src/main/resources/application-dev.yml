@@ -22,7 +22,7 @@ spring:
 ## mybatis-plus配置
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*Mapper.xml
-  typeAliasesPackage: com.zjmiec.sj.**.response
+  typeAliasesPackage: com.sj.**.response
   configuration: #配置slq打印日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true #sql执行字段下划线自动转换成驼峰原则的属性,比如数据库字段is_del java对象属性isDel,不需要在Mapper.xml中配置ResultMap
