@@ -3,7 +3,7 @@
 
 该项目为canal客户端，根据项目需要做了一定的定制化需求。
 
-canal为生产者，canal-adapter是消费者，使用canal-adapter之前需要安装配置canal
+canal为生产者，canal-adapter是消费者，使用canal-adapter之前需要安装配置canal（搭配canal生产者）
 
 ## 数据库同步方案
 接收canal的binlog，然后处理转换binlog。实现实时etl
